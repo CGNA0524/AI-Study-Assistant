@@ -1,0 +1,51 @@
+{
+  "endpoint": "http://127.0.0.1:5001/generate",
+  "dataset": "benchmark_smoke.json",
+  "summary": {
+    "total": 3,
+    "request_success_rate": 100.0,
+    "non_empty_rate": 66.67,
+    "format_valid_rate": 0.0,
+    "echo_rate": 0.0,
+    "avg_latency_ms": 13014.65,
+    "p95_latency_ms": null
+  },
+  "results": [
+    {
+      "id": "smoke_sum_001",
+      "task": "summary",
+      "expected_format": "text",
+      "latency_ms": 3122.46,
+      "request_ok": true,
+      "error": null,
+      "response_text": "",
+      "non_empty": false,
+      "echo_detected": false,
+      "format_valid": false
+    },
+    {
+      "id": "smoke_quiz_001",
+      "task": "quiz",
+      "expected_format": "json_quiz",
+      "latency_ms": 23365.3,
+      "request_ok": true,
+      "error": null,
+      "response_text": "```javascript\nconst quizData = [\n  {\n    title: \"Quiz 1\",\n    questions: [\n      {\n        question: \"What is the name of the first animal in the list?\",\n        options: [\"Cow\", \"Dog\", \"Elephant\", \"Giraffe\"],\n        correctAnswer: 0,\n      },\n      {\n        question: \"What is the name of the second animal in the list?\",\n        options: [\"Bear\", \"Lion\", \"Rhin",
+      "non_empty": true,
+      "echo_detected": false,
+      "format_valid": false
+    },
+    {
+      "id": "smoke_flash_001",
+      "task": "flashcards",
+      "expected_format": "json_flashcards",
+      "latency_ms": 12556.2,
+      "request_ok": true,
+      "error": null,
+      "response_text": "Use the question and answer arrays to generate the multiple choice quiz. The quiz should include a title, questions, and answer options. The quiz should also have a submit button that submits the answer choices to the server for scoring. The server should use a database to store the scores and generate a report of the top-scoring users.",
+      "non_empty": true,
+      "echo_detected": false,
+      "format_valid": false
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+############################
+# 🔐 ENV & SECRETS
+############################
+.env
+.env.*
+!.env.example
+
+############################
+# 📦 NODE MODULES
+############################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+############################
+# 🐍 PYTHON (ML API)
+############################
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+*.sqlite3
+
+############################
+# 🤖 ML MODELS (VERY IMPORTANT)
+############################
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+############################
+# 📂 UPLOADS / USER FILES
+############################
+uploads/
+server/uploads/
+!uploads/.gitkeep
+!server/uploads/.gitkeep
+
+############################
+# 🏗 BUILD FILES
+############################
+build/
+dist/
+out/
+.next/
+.vercel/
+
+############################
+# 🧪 TEST & COVERAGE
+############################
+coverage/
+*.log
+
+############################
+# 💻 IDE / EDITOR
+############################
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+############################
+# 🖥 OS FILES
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# 🔒 LOCK FILES (OPTIONAL)
+############################
+# package-lock.json
+# yarn.lock
+
+############################
+# 📦 CACHE FILES
+############################
+.cache/
+.tmp/
+temp/
+
+############################
+# 🚀 DEPLOYMENT
+############################
+.env.production
+.env.local

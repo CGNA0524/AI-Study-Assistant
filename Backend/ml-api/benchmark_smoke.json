@@ -1,0 +1,20 @@
+[
+  {
+    "id": "smoke_sum_001",
+    "task": "summary",
+    "prompt": "Summarize photosynthesis in 2 lines.",
+    "expected_format": "text"
+  },
+  {
+    "id": "smoke_quiz_001",
+    "task": "quiz",
+    "prompt": "Generate 3 quiz questions. Return JSON array with question, options (4), correctAnswer (0-3).",
+    "expected_format": "json_quiz"
+  },
+  {
+    "id": "smoke_flash_001",
+    "task": "flashcards",
+    "prompt": "Generate 3 flashcards. Return JSON array with question and answer.",
+    "expected_format": "json_flashcards"
+  }
+]

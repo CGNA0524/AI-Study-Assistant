@@ -1,0 +1,45 @@
+PHOTOSYNTHESIS: A COMPREHENSIVE STUDY GUIDE
+
+Chapter 1: Introduction to Photosynthesis
+
+Photosynthesis is the process by which plants, algae, and some bacteria convert light energy into chemical energy in the form of glucose. It occurs mainly in the chloroplasts of plant cells where chlorophyll captures sunlight.
+
+The overall equation for photosynthesis is:
+6CO2 + 6H2O + light energy → C6H12O6 + 6O2
+
+Chapter 2: Light-Dependent Reactions
+
+The light-dependent reactions occur in the thylakoid membranes of chloroplasts. These reactions:
+- Capture light energy using chlorophyll
+- Split water molecules (photolysis)
+- Release oxygen as a byproduct
+- Generate ATP and NADPH
+- Produce electrons that drive the Calvin Cycle
+
+Key structures involved:
+- Photosystem II (PSII)
+- Photosystem I (PSI)
+- Electron transport chain
+- ATP synthase
+
+Chapter 3: Light-Independent Reactions (Calvin Cycle)
+
+The Calvin Cycle occurs in the stroma and includes three main stages:
+1. Carbon Fixation - CO2 is combined with RuBP
+2. Reduction - ATP and NADPH are used to create G3P
+3. Regeneration - RuBP is regenerated to continue the cycle
+
+Chapter 4: Factors Affecting Photosynthesis
+
+1. Light Intensity - Increases photosynthesis up to a saturation point
+2. Carbon Dioxide Concentration - Essential for the Calvin Cycle
+3. Temperature - Affects enzyme activity
+4. Chlorophyll Content - Determines light absorption capacity
+5. Water Availability - Required for photolysis
+
+Study Questions:
+1. What are the two main stages of photosynthesis?
+2. Where do the light-dependent reactions occur?
+3. What is the role of chlorophyll?
+4. Describe the Calvin Cycle in detail.
+5. How does temperature affect photosynthesis rates?

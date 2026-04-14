@@ -1,0 +1,51 @@
+{
+  "endpoint": "http://127.0.0.1:5001/generate",
+  "dataset": "benchmark_smoke.json",
+  "summary": {
+    "total": 3,
+    "request_success_rate": 33.33,
+    "non_empty_rate": 0.0,
+    "format_valid_rate": 0.0,
+    "echo_rate": 0.0,
+    "avg_latency_ms": 13750.58,
+    "p95_latency_ms": null
+  },
+  "results": [
+    {
+      "id": "smoke_sum_001",
+      "task": "summary",
+      "expected_format": "text",
+      "latency_ms": 1214.72,
+      "request_ok": true,
+      "error": null,
+      "response_text": "",
+      "non_empty": false,
+      "echo_detected": false,
+      "format_valid": false
+    },
+    {
+      "id": "smoke_quiz_001",
+      "task": "quiz",
+      "expected_format": "json_quiz",
+      "latency_ms": 20017.2,
+      "request_ok": false,
+      "error": "timed out",
+      "response_text": "",
+      "non_empty": false,
+      "echo_detected": false,
+      "format_valid": false
+    },
+    {
+      "id": "smoke_flash_001",
+      "task": "flashcards",
+      "expected_format": "json_flashcards",
+      "latency_ms": 20019.81,
+      "request_ok": false,
+      "error": "timed out",
+      "response_text": "",
+      "non_empty": false,
+      "echo_detected": false,
+      "format_valid": false
+    }
+  ]
+}

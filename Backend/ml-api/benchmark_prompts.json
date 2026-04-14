@@ -1,0 +1,92 @@
+[
+  {
+    "id": "sum_001",
+    "task": "summary",
+    "prompt": "Summarize photosynthesis in 2 lines.",
+    "expected_format": "text"
+  },
+  {
+    "id": "sum_002",
+    "task": "summary",
+    "prompt": "Give a concise summary of light-dependent reactions.",
+    "expected_format": "text"
+  },
+  {
+    "id": "sum_003",
+    "task": "summary",
+    "prompt": "Write a 3-sentence summary of the Calvin cycle.",
+    "expected_format": "text"
+  },
+  {
+    "id": "sum_004",
+    "task": "summary",
+    "prompt": "Summarize how light intensity affects photosynthesis.",
+    "expected_format": "text"
+  },
+  {
+    "id": "sum_005",
+    "task": "summary",
+    "prompt": "Create a short revision summary for chloroplast structure.",
+    "expected_format": "text"
+  },
+  {
+    "id": "quiz_001",
+    "task": "quiz",
+    "prompt": "Generate 3 quiz questions about photosynthesis. Return JSON array with question, options (4 items), correctAnswer (0-3).",
+    "expected_format": "json_quiz"
+  },
+  {
+    "id": "quiz_002",
+    "task": "quiz",
+    "prompt": "Make 5 MCQ questions from chlorophyll and light reactions. Return only JSON array.",
+    "expected_format": "json_quiz"
+  },
+  {
+    "id": "quiz_003",
+    "task": "quiz",
+    "prompt": "Create 4 objective quiz questions on Calvin cycle. Strict JSON output only.",
+    "expected_format": "json_quiz"
+  },
+  {
+    "id": "quiz_004",
+    "task": "quiz",
+    "prompt": "Generate exam-style quiz from plant biology topic photosynthesis. JSON only.",
+    "expected_format": "json_quiz"
+  },
+  {
+    "id": "quiz_005",
+    "task": "quiz",
+    "prompt": "Produce 3 multiple choice questions about factors affecting photosynthesis with answer indices. JSON array only.",
+    "expected_format": "json_quiz"
+  },
+  {
+    "id": "flash_001",
+    "task": "flashcards",
+    "prompt": "Generate 5 flashcards from photosynthesis. Return JSON array with question and answer.",
+    "expected_format": "json_flashcards"
+  },
+  {
+    "id": "flash_002",
+    "task": "flashcards",
+    "prompt": "Create 4 revision flashcards on chloroplast and chlorophyll. Strict JSON only.",
+    "expected_format": "json_flashcards"
+  },
+  {
+    "id": "flash_003",
+    "task": "flashcards",
+    "prompt": "Build flashcards for Calvin cycle stages. JSON array with question and answer.",
+    "expected_format": "json_flashcards"
+  },
+  {
+    "id": "flash_004",
+    "task": "flashcards",
+    "prompt": "Make 6 flashcards from photosynthesis equations and reactions. JSON output only.",
+    "expected_format": "json_flashcards"
+  },
+  {
+    "id": "flash_005",
+    "task": "flashcards",
+    "prompt": "Generate beginner-level flashcards for photosynthesis. Return only JSON list.",
+    "expected_format": "json_flashcards"
+  }
+]
