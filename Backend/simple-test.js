@@ -23,7 +23,7 @@ async function setup() {
       testUser = await User.create({
         name: 'Routing Tester',
         email: 'routing-test@test.com',
-        password: 'test123',
+        password: process.env.TEST_PASSWORD || 'test123'
       });
     }
 
