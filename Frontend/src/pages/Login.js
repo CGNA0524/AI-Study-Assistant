@@ -55,9 +55,20 @@ const Login = () => {
     script.onload = () => {
       if (window.google) {
         window.google.accounts.id.initialize({
-          client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID || '1023234913404-a5vek6cp9f6f4f7kq8c8qc8c8c8c8c8c.apps.googleusercontent.com',
+          client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID || '126353575172-or6l7aeqnn88q1v2g4h11hr23cfp278n.apps.googleusercontent.com',
           callback: handleGoogleSuccess,
         });
+        
+        // Render the Google button immediately after initialization
+        const buttonElement = document.getElementById('googleSignInButton');
+        if (buttonElement) {
+          window.google.accounts.id.renderButton(buttonElement, {
+            theme: 'outline',
+            size: 'large',
+            width: '100%',
+            text: 'signin_with'
+          });
+        }
       }
     };
 
@@ -67,15 +78,6 @@ const Login = () => {
       }
     };
   }, [handleGoogleSuccess]);
-
-  const handleGoogleClick = () => {
-    if (window.google) {
-      window.google.accounts.id.renderButton(
-        document.getElementById('googleSignInButton'),
-        { theme: 'outline', size: 'large', width: '100%' }
-      );
-    }
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -178,8 +180,7 @@ const Login = () => {
 
           <div 
             id="googleSignInButton"
-            onClick={handleGoogleClick}
-            className="w-full"
+            className="w-full flex justify-center"
           ></div>
         </form>
 

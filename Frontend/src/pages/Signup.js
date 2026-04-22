@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { register as registerAPI } from '../services/api';
 import { AuthContext } from '../components/AuthContext';
@@ -17,24 +17,12 @@ const Signup = () => {
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  useEffect(() => {
-    // Load Google Sign-In script
-    const script = document.createElement('script');
-    script.src = 'https://accounts.google.com/gsi/client';
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  const handleGoogleSuccess = async (credentialResponse) => {
+  // Define this BEFORE useEffect
+  const handleGoogleSuccess = useCallback(async (credentialResponse) => {
     setLoading(true);
     setError('');
     try {
-      const response = await fetch('http://localhost:5000/api/auth/google', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:5000/api'}/auth/google`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,23 +44,42 @@ const Signup = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [login, navigate]);
 
-  const handleGoogleClick = () => {
-    window.google.accounts.id.initialize({
-      client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-      callback: handleGoogleSuccess,
-    });
+  useEffect(() => {
+    // Load Google Sign-In script
+    const script = document.createElement('script');
+    script.src = 'https://accounts.google.com/gsi/client';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
 
-    window.google.accounts.id.renderButton(
-      document.getElementById('google-signup-button'),
-      {
-        theme: 'outline',
-        size: 'large',
-        width: '100%',
+    script.onload = () => {
+      if (window.google) {
+        window.google.accounts.id.initialize({
+          client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID || '126353575172-or6l7aeqnn88q1v2g4h11hr23cfp278n.apps.googleusercontent.com',
+          callback: handleGoogleSuccess,
+        });
+
+        // Render the Google button immediately after initialization
+        const buttonElement = document.getElementById('google-signup-button');
+        if (buttonElement) {
+          window.google.accounts.id.renderButton(buttonElement, {
+            theme: 'outline',
+            size: 'large',
+            width: '100%',
+            text: 'signup_with'
+          });
+        }
       }
-    );
-  };
+    };
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, [handleGoogleSuccess]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -198,29 +205,21 @@ const Signup = () => {
           >
             {loading ? 'Creating Account...' : 'Sign Up'}
           </button>
+
+          <div className="relative my-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-2 bg-white text-gray-600">Or continue with</span>
+            </div>
+          </div>
+
+          <div 
+            id="google-signup-button"
+            className="w-full flex justify-center"
+          ></div>
         </form>
-
-        <div className="mt-6 flex items-center gap-4">
-          <div className="flex-1 h-px bg-gray-300"></div>
-          <span className="text-gray-500 text-sm">or</span>
-          <div className="flex-1 h-px bg-gray-300"></div>
-        </div>
-
-        <div className="mt-6">
-          <div id="google-signup-button" className="w-full"></div>
-          {!window.google && (
-            <button
-              onClick={handleGoogleClick}
-              className="w-full bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium py-2 rounded-lg transition flex items-center justify-center gap-2"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24">
-                <image href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text x='0' y='0' font-size='24' fill='%234285F4'>G</text></svg>" width="24" height="24" />
-              </svg>
-              Sign up with Google
-            </button>
-          )}
-          {window.google && <script>{handleGoogleClick()}</script>}
-        </div>
 
         <p className="text-center text-gray-600 mt-6">
           Already have an account?{' '}

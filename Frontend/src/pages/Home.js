@@ -27,13 +27,13 @@ const Home = () => {
             {isLoggedIn ? (
               <>
                 <button
-                  onClick={() => navigate('/chat')}
+                  onClick={() => navigate('/dashboard')}
                   className="px-4 py-2 text-gray-700 hover:text-blue-600 transition"
                 >
                   Dashboard
                 </button>
                 <button
-                  onClick={() => navigate('/chat')}
+                  onClick={() => navigate('/dashboard')}
                   className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium"
                 >
                   Go to Chat
@@ -72,7 +72,7 @@ const Home = () => {
             </p>
             <div className="flex gap-4">
               <button
-                onClick={() => navigate(isLoggedIn ? '/chat' : '/signup')}
+                onClick={() => navigate(isLoggedIn ? '/dashboard' : '/signup')}
                 className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold text-lg"
               >
                 Get Started
