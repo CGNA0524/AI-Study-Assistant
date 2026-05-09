@@ -10,16 +10,27 @@ const aiRoutes = require('./routes/aiRoutes');
 
 const app = express();
 
-// Middleware - Allow requests from Vercel frontend
-const allowedOrigins = [
-  'http://localhost:3000', // local development
-  'https://ai-study-assistant.vercel.app', // Replace with your Vercel URL
-  process.env.FRONTEND_URL // for production
-];
+// Middleware - Allow requests from local dev and deployed Vercel frontends
+const allowedOrigins = new Set(
+  [
+    'http://localhost:3000',
+    process.env.FRONTEND_URL,
+  ].filter(Boolean)
+);
 
 app.use(cors({
-  origin: allowedOrigins,
-  credentials: true
+  origin: (origin, callback) => {
+    if (!origin) {
+      return callback(null, true);
+    }
+
+    if (allowedOrigins.has(origin) || /^https:\/\/.*\.vercel\.app$/.test(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error(`CORS blocked for origin: ${origin}`));
+  },
+  credentials: true,
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

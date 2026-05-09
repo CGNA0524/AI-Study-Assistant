@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { register as registerAPI } from '../services/api';
+import { GOOGLE_CLIENT_ID, getApiUrl } from '../services/config';
 import { AuthContext } from '../components/AuthContext';
 import { FiMail, FiLock, FiUser, FiEye, FiEyeOff } from 'react-icons/fi';
 
@@ -22,7 +23,7 @@ const Signup = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:5000/api'}/auth/google`, {
+      const response = await fetch(getApiUrl('/auth/google'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,9 +56,14 @@ const Signup = () => {
     document.body.appendChild(script);
 
     script.onload = () => {
+      if (!GOOGLE_CLIENT_ID) {
+        setError('Google Sign-In is not configured for this deployment.');
+        return;
+      }
+
       if (window.google) {
         window.google.accounts.id.initialize({
-          client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID || '126353575172-or6l7aeqnn88q1v2g4h11hr23cfp278n.apps.googleusercontent.com',
+          client_id: GOOGLE_CLIENT_ID,
           callback: handleGoogleSuccess,
         });
 
