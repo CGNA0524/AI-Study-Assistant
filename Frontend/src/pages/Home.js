@@ -259,33 +259,33 @@ const Home = () => {
             <div>
               <h4 className="text-white font-semibold mb-2 text-sm">Product</h4>
               <ul className="space-y-1 text-xs">
-                <li><a href="#" className="hover:text-white transition">Features</a></li>
-                <li><a href="#" className="hover:text-white transition">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition">Security</a></li>
+                <li><a href="#features" className="hover:text-white transition">Features</a></li>
+                <li><a href="/signup" className="hover:text-white transition">Pricing</a></li>
+                <li><a href="/signup" className="hover:text-white transition">Security</a></li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-2 text-sm">Company</h4>
               <ul className="space-y-1 text-xs">
-                <li><a href="#" className="hover:text-white transition">About</a></li>
-                <li><a href="#" className="hover:text-white transition">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition">Contact</a></li>
+                <li><a href="/" className="hover:text-white transition">About</a></li>
+                <li><a href="/" className="hover:text-white transition">Blog</a></li>
+                <li><a href="/" className="hover:text-white transition">Contact</a></li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-2 text-sm">Follow</h4>
               <div className="flex gap-3">
-                <a href="#" className="text-gray-400 hover:text-white transition"><FiTwitter size={20} /></a>
-                <a href="#" className="text-gray-400 hover:text-white transition"><FiGithub size={20} /></a>
-                <a href="#" className="text-gray-400 hover:text-white transition"><FiLinkedin size={20} /></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><FiTwitter size={20} /></a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><FiGithub size={20} /></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition"><FiLinkedin size={20} /></a>
               </div>
             </div>
           </div>
           <div className="border-t border-gray-800 pt-6 flex justify-between items-center text-xs">
             <p>&copy; AI Study Assistant. All rights reserved.</p>
             <div className="flex gap-4 text-xs">
-              <a href="#" className="hover:text-white transition">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition">Terms of Service</a>
+              <a href="/privacy" className="hover:text-white transition">Privacy Policy</a>
+              <a href="/terms" className="hover:text-white transition">Terms of Service</a>
             </div>
           </div>
         </div>
